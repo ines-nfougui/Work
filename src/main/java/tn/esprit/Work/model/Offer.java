@@ -1,40 +1,32 @@
 package tn.esprit.Work.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
-@Table(name="evenement")
-public class Evenements {
+
+public class Offer {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long idE;
-
-    @NotBlank
-    private String titre ;
+    private Long idOffer ;
     @NotBlank
     private String description ;
+
     private Date dateStart ;
     private Date dateC ;
     private Date dateEnd ;
-    private int nbrPlace ;
 
-    public Long getIdE() {
-        return idE;
+    public Long getIdOffer() {
+        return idOffer;
     }
 
-    public void setIdE(Long idE) {
-        this.idE = idE;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setIdOffer(Long idOffer) {
+        this.idOffer = idOffer;
     }
 
     public String getDescription() {
@@ -68,12 +60,6 @@ public class Evenements {
 	public void setDateC(Date dateC) {
 		this.dateC = dateC;
 	}
-
-    public int getNbrPlace() {
-        return nbrPlace;
-    }
-
-    public void setNbrPlace(int nbrPlace) {
-        this.nbrPlace = nbrPlace;
-    }
+    
+    
 }

@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.Work.Exception.QuestionValidator;
+import tn.esprit.Work.Validator.QuestionValidator;
 import tn.esprit.Work.IService.IServiceQuestion;
 import tn.esprit.Work.Serice.MapValidationErrorService;
 import tn.esprit.Work.model.Question;
@@ -35,11 +35,11 @@ public class QuestionController {
     @PostMapping("/add-question")
     @ResponseBody
     public ResponseEntity<?> addQuestion(@Valid  @RequestBody Question c , BindingResult result) {
-        questionValidator.validate(c,result);
-        ResponseEntity<?> erroMap =mapValidationErrorService.MapValidationService(result);
-        if(erroMap != null)return erroMap;
-        Question question = serviceQuestion.addQuestion(c);
-        return new ResponseEntity<Question>( question, HttpStatus.CREATED);
+            questionValidator.validate(c,result);
+            ResponseEntity<?> erroMap =mapValidationErrorService.MapValidationService(result);
+            if(erroMap != null)return erroMap;
+            Question question = serviceQuestion.addQuestion(c);
+            return new ResponseEntity<Question>( question, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/remove-question/{question-id}")

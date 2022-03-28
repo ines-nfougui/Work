@@ -1,6 +1,7 @@
 package tn.esprit.Work.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="collobrateur")
@@ -11,7 +12,9 @@ public class Collaborateur {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long idC;
 
+    @NotBlank
     private String titre ;
+    @NotBlank
     private String description ;
 
 
